@@ -86,4 +86,25 @@ public class Magasin {
 		}
 	}
 
+	public void trierArtiste() {
+		int nbCDs = this.listeCds.size();
+
+		for (int i = 0; i < nbCDs - 1; i++) {
+			int indiceSelection = i;
+			CD cdSelectionne = this.listeCds.get(i);
+
+			for (int j = i + 1; j < nbCDs; j++) {
+				CD cdJ = this.listeCds.get(j);
+
+				if (cdJ.etreAvantArtiste(cdSelectionne)) {
+					indiceSelection = j;
+					cdSelectionne = cdJ;
+				}
+			}
+
+			this.listeCds.set(indiceSelection, this.listeCds.get(i));
+			this.listeCds.set(i, cdSelectionne);
+		}
+	}
+
 }
