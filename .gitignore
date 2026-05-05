@@ -1,0 +1,15 @@
+# IntelliJ
+.idea/
+*.iml
+out/
+
+# Maven / Gradle (si utilisé plus tard)
+target/
+build/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
