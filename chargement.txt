@@ -1,0 +1,9 @@
+Le diagramme montre comment on charge un magasin de CD à partir d’un dossier de fichiers XML.
+
+On crée d’abord un ChargeurMagasin avec le chemin du dossier, puis on lance le chargement.
+
+Pour chaque fichier XML, un ChargeurCD est utilisé pour lire le fichier et créer un CD (titre, artiste, pistes).
+
+Chaque CD est ensuite ajouté au magasin.
+
+À la fin, on obtient un magasin contenant tous les CD du dossier.
