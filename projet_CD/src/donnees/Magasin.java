@@ -67,42 +67,22 @@ public class Magasin {
 			res=this.listeCds.get(i);
 		return(res);
 	}
-
-	public void trierAlbum() {
+	
+	public void trier(ComparateurCd comparateur) {
 		int nbCDs = this.listeCds.size();
-		for (int i = 0; i < nbCDs; i++) {
-			int indiceSelection = i;
+		for (int i = 0; i < nbCDs - 1; i++) {
+			int indiceSelectionne = i;
 			CD cdSelectionne = this.listeCds.get(i);
-			for (int j = 0; i < nbCDs; j++) {
+
+			for(int j = i + 1; j < nbCDs; j++) {
 				CD cdj = this.listeCds.get(j);
 
-				if (cdj.etreAvantAlbum(cdSelectionne)) {
-					indiceSelection = j;
+				if (comparateur.etreAvant(cdj, cdSelectionne)) {
+					indiceSelectionne = j;
 					cdSelectionne = cdj;
 				}
 			}
-			this.listeCds.set(indiceSelection, this.listeCds.get(i));
-			this.listeCds.set(i, cdSelectionne);
-		}
-	}
-
-	public void trierArtiste() {
-		int nbCDs = this.listeCds.size();
-
-		for (int i = 0; i < nbCDs - 1; i++) {
-			int indiceSelection = i;
-			CD cdSelectionne = this.listeCds.get(i);
-
-			for (int j = i + 1; j < nbCDs; j++) {
-				CD cdJ = this.listeCds.get(j);
-
-				if (cdJ.etreAvantArtiste(cdSelectionne)) {
-					indiceSelection = j;
-					cdSelectionne = cdJ;
-				}
-			}
-
-			this.listeCds.set(indiceSelection, this.listeCds.get(i));
+			this.listeCds.set(indiceSelectionne, this.listeCds.get(i));
 			this.listeCds.set(i, cdSelectionne);
 		}
 	}
